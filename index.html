@@ -398,6 +398,40 @@
       border-bottom: 1px solid var(--border-soft);
     }
 
+    .proj-link {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-2);
+    }
+
+    .proj-link:hover {
+      text-decoration: underline;
+    }
+
+    .proj-shots {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .proj-shots img {
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+      border-radius: 8px;
+      object-fit: contain;
+      display: block;
+    }
+
+    @media (max-width:680px) {
+      .proj-shots img {
+        max-height: 260px;
+      }
+    }
+
     /* ---------- FOOTER ---------- */
     footer {
       padding: 80px 0 50px;
@@ -470,7 +504,7 @@
           the architecture.</p>
         <div class="hero-links">
           <a class="btn primary" href="#professional">View my work</a>
-          <a class="btn" href="mailto:dan.jf.alves@gmail.com">Email me</a>
+          <a class="btn" href="mailto:myemail@gmail.com">Email me</a>
           <a class="btn" href="https://github.com/Aspirel" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
@@ -485,13 +519,15 @@
         <h2>A bit about me</h2>
       </div>
       <div class="about-inner">
-        <p>I'm a backend developer working on the integrations team, where I spend most of my time turning inconsistent
+        <p>I'm a software engineer working on the integrations team, where I spend most of my time turning inconsistent
           third-party APIs into pipelines that finance and HR teams never have to think about — accounting platforms,
           payroll systems, payment processors, that sort of thing.</p>
         <p>What I enjoy most is the architecture problem underneath every integration: building something generic enough
           to onboard the <strong>next</strong> system in weeks rather than months, without it collapsing into a pile of
           special cases.</p>
-        <p><em>[A line or two about your interests outside of work goes nicely here — this is the spot for it.]</em></p>
+        <p>Outside of work I'm usually deep in a personal coding project, a video game, or a DIY job around the
+          house. Most days involve several walks with my two puppies, and I try to get out on the
+          bike or travel somewhere new when I can.</p>
       </div>
     </div>
   </section>
@@ -509,20 +545,34 @@
         <div class="skill-row">
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/openjdk/8D93A0" alt=""
               onerror="this.remove()">Java</span>
-          <span class="skill-pill"><img src="https://cdn.simpleicons.org/spring/8D93A0" alt=""
-              onerror="this.remove()">Spring Boot</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/javascript/8D93A0" alt=""
               onerror="this.remove()">JavaScript</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/typescript/8D93A0" alt=""
               onerror="this.remove()">TypeScript</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/python/8D93A0" alt=""
+              onerror="this.remove()">Python</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/swift/8D93A0" alt=""
+              onerror="this.remove()">Swift</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-cat">Frameworks & Runtimes</div>
+        <div class="skill-row">
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/spring/8D93A0" alt=""
+              onerror="this.remove()">Spring Boot</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/vuedotjs/8D93A0" alt=""
               onerror="this.remove()">Vue</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/react/8D93A0" alt=""
               onerror="this.remove()">React</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/nodedotjs/8D93A0" alt=""
               onerror="this.remove()">Node</span>
-          <span class="skill-pill"><img src="https://cdn.simpleicons.org/python/8D93A0" alt=""
-              onerror="this.remove()">Python</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/android/8D93A0" alt=""
+              onerror="this.remove()">Android (Java)</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/apple/8D93A0" alt=""
+              onerror="this.remove()">iOS (Swift)</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/react/8D93A0" alt=""
+              onerror="this.remove()">React Native</span>
         </div>
       </div>
 
@@ -547,6 +597,8 @@
               onerror="this.remove()">PostgreSQL</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/microsoftsqlserver/8D93A0" alt=""
               onerror="this.remove()">SQL Server</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/firebase/8D93A0" alt=""
+              onerror="this.remove()">Firebase</span>
         </div>
       </div>
 
@@ -605,7 +657,7 @@
           <h3>QuickBooks Integration</h3>
           <p>End-to-end delivery of syncing and transfer flows across bills, purchases, journals and card spend.</p>
           <div class="proj-stack"><span class="stack-chip">Java</span><span class="stack-chip">Spring Boot</span><span
-              class="stack-chip">AWS</span></div>
+              class="stack-chip">AWS</span><span class="stack-chip">React</span></div>
         </div>
         <div class="proj-card">
           <span class="tag">Lead developer</span>
@@ -658,12 +710,34 @@
           <span class="tag">Marketplace extension</span>
           <h3>Azure DevOps Sprint-Refinement Extension</h3>
           <p>Published on the Azure DevOps Marketplace to help teams run sprint refinement more smoothly.</p>
-          <div class="proj-stack"><span class="stack-chip">Azure DevOps</span></div>
+          <div class="proj-stack"><span class="stack-chip">Azure DevOps</span><span class="stack-chip">30
+              installs</span></div>
+          <a class="proj-link" href="https://marketplace.visualstudio.com/items?itemName=Asp1Teq.devops-refinement-tool"
+            target="_blank" rel="noopener">View on Marketplace →</a>
+          <div class="proj-shots">
+            <img src="assets/refinement-tool-dashboard.png" alt="Refinement Tool dashboard screen showing sprint stats">
+            <img src="assets/refinement-tool-session.png" alt="Refinement Tool session screen showing sprint details">
+          </div>
         </div>
         <div class="proj-card">
-          <span class="tag">Automation</span>
+          <span class="tag">Final year project</span>
+          <h3>StatOps</h3>
+          <p>A fully working mobile app for Azure DevOps — dashboards and work item creation, connected live to the real
+            Azure DevOps API. Built as my university final year project.</p>
+          <div class="proj-stack"><span class="stack-chip">React Native</span><span class="stack-chip">Azure DevOps
+              API</span></div>
+          <div class="proj-shots">
+            <img src="assets/statops-dashboard.png"
+              alt="StatOps dashboard screen showing backlog progress and sprint stats">
+            <img src="assets/statops-backlog.png"
+              alt="StatOps backlog screen showing bugs, product backlog items and tasks">
+          </div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Proof of concept</span>
           <h3>Slack API Integrations</h3>
-          <p>A set of small integrations against the Slack API for personal workflow automation.</p>
+          <p>A working proof-of-concept exploring integrations against the Slack API — not yet wired into a live system.
+          </p>
           <div class="proj-stack"><span class="stack-chip">Slack API</span></div>
         </div>
         <div class="proj-card">
@@ -677,6 +751,10 @@
           <h3>Wordle Clone</h3>
           <p>A Java implementation of Wordle built for fun, exploring game-state logic and word validation.</p>
           <div class="proj-stack"><span class="stack-chip">Java</span></div>
+          <div class="proj-shots">
+            <img src="assets/wordle.png"
+              alt="Wordle clone screen showing game interface with a word guess and feedback">
+          </div>
         </div>
       </div>
     </div>
