@@ -504,7 +504,7 @@
           the architecture.</p>
         <div class="hero-links">
           <a class="btn primary" href="#professional">View my work</a>
-          <a class="btn" href="mailto:myemail@gmail.com">Email me</a>
+          <a class="btn" href="mailto:dan.jf.alves@gmail.com">Email me</a>
           <a class="btn" href="https://github.com/Aspirel" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
@@ -573,14 +573,15 @@
               onerror="this.remove()">iOS (Swift)</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/react/8D93A0" alt=""
               onerror="this.remove()">React Native</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/express/8D93A0" alt=""
+              onerror="this.remove()">Express</span>
         </div>
       </div>
 
       <div class="skill-group">
         <div class="skill-cat">Cloud &amp; DevOps</div>
         <div class="skill-row">
-          <span class="skill-pill"><img src="https://cdn.simpleicons.org/amazonaws/8D93A0" alt=""
-              onerror="this.remove()">AWS (Lambda, SQS, SNS, S3)</span>
+          <span class="skill-pill"><span class="noicon">AWS</span>Amazon AWS</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/docker/8D93A0" alt=""
               onerror="this.remove()">Docker</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/jenkins/8D93A0" alt=""
@@ -595,8 +596,7 @@
         <div class="skill-row">
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/postgresql/8D93A0" alt=""
               onerror="this.remove()">PostgreSQL</span>
-          <span class="skill-pill"><img src="https://cdn.simpleicons.org/microsoftsqlserver/8D93A0" alt=""
-              onerror="this.remove()">SQL Server</span>
+          <span class="skill-pill"><span class="noicon">SQL</span>SQL Server</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/firebase/8D93A0" alt=""
               onerror="this.remove()">Firebase</span>
         </div>
@@ -625,8 +625,7 @@
               onerror="this.remove()">Azure DevOps</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/intellijidea/8D93A0" alt=""
               onerror="this.remove()">IntelliJ</span>
-          <span class="skill-pill"><img src="https://cdn.simpleicons.org/visualstudiocode/8D93A0" alt=""
-              onerror="this.remove()">VS Code</span>
+          <span class="skill-pill"><span class="noicon">VS</span>VS Code</span>
           <span class="skill-pill"><img src="https://cdn.simpleicons.org/postman/8D93A0" alt=""
               onerror="this.remove()">Postman</span>
         </div>
@@ -641,6 +640,17 @@
               onerror="this.remove()">GitHub Copilot</span>
         </div>
       </div>
+
+      <div class="skill-group">
+        <div class="skill-cat">Operating Systems</div>
+        <div class="skill-row">
+          <span class="skill-pill"><span class="noicon">OS</span>macOS</span>
+          <span class="skill-pill"><span class="noicon">OS</span>Windows</span>
+          <span class="skill-pill"><span class="noicon">OS</span>Linux</span>
+        </div>
+      </div>
+    </div>
+    </div>
     </div>
   </section>
 
@@ -661,10 +671,16 @@
         </div>
         <div class="proj-card">
           <span class="tag">Lead developer</span>
-          <h3>Cezanne HR &amp; Payroll Integration</h3>
+          <h3>Cezanne HR Integration</h3>
           <p>End-to-end delivery of user sync and payroll flows between Cezanne and internal systems.</p>
           <div class="proj-stack"><span class="stack-chip">Java</span><span class="stack-chip">Spring Boot</span><span
-              class="stack-chip">AWS</span></div>
+              class="stack-chip">AWS</span><span class="stack-chip">React</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Reconciliation</span>
+          <h3>MYOB Bill Integration</h3>
+          <p>Bill transfers, syncing, attachment handling, reconciliation and error-tolerant retry flows.</p>
+          <div class="proj-stack"><span class="stack-chip">Java</span><span class="stack-chip">Spring Boot</span></div>
         </div>
         <div class="proj-card">
           <span class="tag">Architecture</span>
@@ -682,17 +698,17 @@
               class="stack-chip">SNS</span></div>
         </div>
         <div class="proj-card">
-          <span class="tag">Reconciliation</span>
-          <h3>MYOB Bill Integration</h3>
-          <p>Bill transfers, syncing, attachment handling, reconciliation and error-tolerant retry flows.</p>
-          <div class="proj-stack"><span class="stack-chip">Java</span><span class="stack-chip">Spring Boot</span></div>
-        </div>
-        <div class="proj-card">
           <span class="tag">Payments</span>
           <h3>Wise Payments Integration</h3>
           <p>Enabled claim payments via Wise on Spring Boot and AWS Aurora, SQS and SNS.</p>
           <div class="proj-stack"><span class="stack-chip">Spring Boot</span><span class="stack-chip">Aurora</span><span
               class="stack-chip">SQS</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Mobile</span>
+          <h3>Mobile App Redesign</h3>
+          <p>Part of the full redesign of the mobile application to improve user experience and performance.</p>
+          <div class="proj-stack"><span class="stack-chip">Java</span><span class="stack-chip">Android</span></div>
         </div>
       </div>
     </div>
@@ -709,14 +725,19 @@
         <div class="proj-card">
           <span class="tag">Marketplace extension</span>
           <h3>Azure DevOps Sprint-Refinement Extension</h3>
-          <p>Published on the Azure DevOps Marketplace to help teams run sprint refinement more smoothly.</p>
-          <div class="proj-stack"><span class="stack-chip">Azure DevOps</span><span class="stack-chip">30
+          <p>The DevOps Refinement Tool helps teams plan, estimate, and track work directly in Azure DevOps. It includes
+            a dashboard showing sprint statistics, plus refinement sessions that can run online or
+            offline.</p>
+          <div class="proj-stack"><span class="stack-chip">Azure DevOps</span><span
+              class="stack-chip">Socket.IO</span><span class="stack-chip">WebSockets</span><span class="stack-chip">30
               installs</span></div>
           <a class="proj-link" href="https://marketplace.visualstudio.com/items?itemName=Asp1Teq.devops-refinement-tool"
             target="_blank" rel="noopener">View on Marketplace →</a>
           <div class="proj-shots">
-            <img src="assets/refinement-tool-dashboard.png" alt="Refinement Tool dashboard screen showing sprint stats">
-            <img src="assets/refinement-tool-session.png" alt="Refinement Tool session screen showing sprint details">
+            <img src="assets/refinement-tool-dashboard.png"
+              alt="Refinement Tool dashboard showing sprint statistics by team and iteration">
+            <img src="assets/refinement-tool-session.png"
+              alt="Refinement Tool live refinement session with voting and collaboration">
           </div>
         </div>
         <div class="proj-card">
@@ -772,7 +793,7 @@
           <a class="btn" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
-      <div class="foot-note">© 2026 Your Name</div>
+      <div class="foot-note">© 2026 Daniel</div>
     </div>
   </footer>
 
