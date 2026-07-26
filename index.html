@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Backend Software Developer</title>
+  <meta name="description"
+    content="Backend Software Developer specialising in integrations, microservices and event-driven systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0D1015;
+      --bg-alt: #151920;
+      --border: #23272F;
+      --border-soft: #1B1F26;
+      --text: #EAEBEF;
+      --text-dim: #8D93A0;
+      --text-faint: #565B67;
+      --accent: #E8A33D;
+      --accent-2: #6FE3D1;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+      --sans: 'Inter', -apple-system, sans-serif;
+      --max: 900px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #0D1015;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    img {
+      display: block;
+    }
+
+    /* ---------- NAV ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(13, 16, 21, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+
+    .navlinks a:hover {
+      color: var(--text);
+    }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    @media (max-width:640px) {
+      .navlinks {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--bg-alt);
+        flex-direction: column;
+        padding: 18px 24px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+        display: none;
+      }
+
+      .navlinks.open {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+    }
+
+    section {
+      padding: 96px 0;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: .03em;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-weight: 800;
+      font-size: clamp(28px, 4vw, 36px);
+      letter-spacing: -0.015em;
+      margin-bottom: 8px;
+    }
+
+    .section-head {
+      margin-bottom: 44px;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      padding: 140px 0 110px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .glow {
+      position: absolute;
+      top: -180px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 640px;
+      height: 640px;
+      background: radial-gradient(circle, rgba(232, 163, 61, 0.16), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      max-width: 640px;
+    }
+
+    .hero-kicker {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent-2);
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 56px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.08;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: var(--text-dim);
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-size: 13.5px;
+      font-weight: 600;
+      padding: 11px 20px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: all .15s ease;
+    }
+
+    .btn:hover {
+      border-color: var(--accent-2);
+      color: var(--accent-2);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #14171C;
+      border-color: var(--accent);
+    }
+
+    .btn.primary:hover {
+      opacity: .88;
+      color: #14171C;
+    }
+
+    /* ---------- ABOUT ---------- */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 700px;
+    }
+
+    .about-inner p {
+      color: var(--text-dim);
+      font-size: 16px;
+    }
+
+    .about-inner p strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .about-inner p em {
+      color: var(--text-dim);
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skill-group {
+      margin-bottom: 36px;
+    }
+
+    .skill-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-cat {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-faint);
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      margin-bottom: 16px;
+    }
+
+    .skill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-pill {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 9px 14px 9px 10px;
+      font-size: 13.5px;
+      color: var(--text);
+      transition: border-color .15s ease, transform .15s ease;
+    }
+
+    .skill-pill:hover {
+      border-color: var(--accent-2);
+      transform: translateY(-1px);
+    }
+
+    .skill-pill img {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .skill-pill .noicon {
+      width: 18px;
+      height: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--text-faint);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    @media (max-width:680px) {
+      .proj-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .proj-card {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 26px;
+      transition: border-color .15s ease, transform .15s ease;
+    }
+
+    .proj-card:hover {
+      border-color: var(--accent-2);
+      transform: translateY(-2px);
+    }
+
+    .proj-card .tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .03em;
+      margin-bottom: 10px;
+      display: inline-block;
+    }
+
+    .proj-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.005em;
+    }
+
+    .proj-card p {
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-bottom: 14px;
+    }
+
+    .proj-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .stack-chip {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--text-faint);
+      border: 1px solid var(--border-soft);
+      border-radius: 5px;
+      padding: 3px 8px;
+    }
+
+    section.projects {
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      padding: 80px 0 50px;
+    }
+
+    .contact-box {
+      text-align: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .contact-box h2 {
+      margin-bottom: 12px;
+    }
+
+    .contact-box p {
+      color: var(--text-dim);
+      margin-bottom: 28px;
+      font-size: 15.5px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .foot-note {
+      margin-top: 60px;
+      text-align: center;
+      color: var(--text-faint);
+      font-size: 12.5px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="wrap">
+      <div class="brand">Daniel Alves</div>
+      <div class="navlinks" id="navlinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#professional">Professional</a>
+        <a href="#personal">Personal</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <header class="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-kicker">Software Engineer</div>
+        <h1>I build the <span>connective tissue</span> between systems that were never meant to talk.</h1>
+        <p>I work mostly backend — Java, Spring Boot and AWS — building integrations, event-driven systems and
+          microservices, but I ship end-to-end when a project calls for it. AI tools like Claude are part of my everyday
+          workflow now, the same way an IDE or Git is — they speed up the mechanical work so I can spend more time on
+          the architecture.</p>
+        <div class="hero-links">
+          <a class="btn primary" href="#professional">View my work</a>
+          <a class="btn" href="mailto:dan.jf.alves@gmail.com">Email me</a>
+          <a class="btn" href="https://github.com/Aspirel" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">About</div>
+        <h2>A bit about me</h2>
+      </div>
+      <div class="about-inner">
+        <p>I'm a backend developer working on the integrations team, where I spend most of my time turning inconsistent
+          third-party APIs into pipelines that finance and HR teams never have to think about — accounting platforms,
+          payroll systems, payment processors, that sort of thing.</p>
+        <p>What I enjoy most is the architecture problem underneath every integration: building something generic enough
+          to onboard the <strong>next</strong> system in weeks rather than months, without it collapsing into a pile of
+          special cases.</p>
+        <p><em>[A line or two about your interests outside of work goes nicely here — this is the spot for it.]</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SKILLS ===================== -->
+  <section id="skills" style="border-top:1px solid var(--border-soft);">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Skills</div>
+        <h2>Languages &amp; tools</h2>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-row">
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/openjdk/8D93A0" alt=""
+              onerror="this.remove()">Java</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/spring/8D93A0" alt=""
+              onerror="this.remove()">Spring Boot</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/javascript/8D93A0" alt=""
+              onerror="this.remove()">JavaScript</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/typescript/8D93A0" alt=""
+              onerror="this.remove()">TypeScript</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/vuedotjs/8D93A0" alt=""
+              onerror="this.remove()">Vue</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/react/8D93A0" alt=""
+              onerror="this.remove()">React</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/nodedotjs/8D93A0" alt=""
+              onerror="this.remove()">Node</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/python/8D93A0" alt=""
+              onerror="this.remove()">Python</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-cat">Cloud &amp; DevOps</div>
+        <div class="skill-row">
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/amazonaws/8D93A0" alt=""
+              onerror="this.remove()">AWS (Lambda, SQS, SNS, S3)</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/docker/8D93A0" alt=""
+              onerror="this.remove()">Docker</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/jenkins/8D93A0" alt=""
+              onerror="this.remove()">Jenkins</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/githubactions/8D93A0" alt=""
+              onerror="this.remove()">GitHub Actions</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-cat">Databases</div>
+        <div class="skill-row">
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/postgresql/8D93A0" alt=""
+              onerror="this.remove()">PostgreSQL</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/microsoftsqlserver/8D93A0" alt=""
+              onerror="this.remove()">SQL Server</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-cat">Testing</div>
+        <div class="skill-row">
+          <span class="skill-pill"><span class="noicon">JU</span>JUnit</span>
+          <span class="skill-pill"><span class="noicon">MK</span>Mockito</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/jest/8D93A0" alt=""
+              onerror="this.remove()">Jest</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/cypress/8D93A0" alt=""
+              onerror="this.remove()">Cypress</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/playwright/8D93A0" alt=""
+              onerror="this.remove()">Playwright</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-cat">Tools</div>
+        <div class="skill-row">
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/git/8D93A0" alt=""
+              onerror="this.remove()">Git</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/azuredevops/8D93A0" alt=""
+              onerror="this.remove()">Azure DevOps</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/intellijidea/8D93A0" alt=""
+              onerror="this.remove()">IntelliJ</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/visualstudiocode/8D93A0" alt=""
+              onerror="this.remove()">VS Code</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/postman/8D93A0" alt=""
+              onerror="this.remove()">Postman</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-cat">AI-assisted engineering</div>
+        <div class="skill-row">
+          <span class="skill-pill"><span class="noicon">AI</span>Claude (agents, tools, workflows, connectors)</span>
+          <span class="skill-pill"><span class="noicon">AI</span>Junie</span>
+          <span class="skill-pill"><img src="https://cdn.simpleicons.org/githubcopilot/8D93A0" alt=""
+              onerror="this.remove()">GitHub Copilot</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROFESSIONAL PROJECTS ===================== -->
+  <section id="professional" class="projects" style="border-top:1px solid var(--border-soft);">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Professional</div>
+        <h2>Professional projects</h2>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <span class="tag">Lead developer</span>
+          <h3>QuickBooks Integration</h3>
+          <p>End-to-end delivery of syncing and transfer flows across bills, purchases, journals and card spend.</p>
+          <div class="proj-stack"><span class="stack-chip">Java</span><span class="stack-chip">Spring Boot</span><span
+              class="stack-chip">AWS</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Lead developer</span>
+          <h3>Cezanne HR &amp; Payroll Integration</h3>
+          <p>End-to-end delivery of user sync and payroll flows between Cezanne and internal systems.</p>
+          <div class="proj-stack"><span class="stack-chip">Java</span><span class="stack-chip">Spring Boot</span><span
+              class="stack-chip">AWS</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Architecture</span>
+          <h3>Integration Platform Refactor</h3>
+          <p>A generic, strategy-based integration framework with a dynamic schema that drives auto-rendered UI.
+            Consolidated legacy integrations and cut new-integration delivery time from six months to under one.</p>
+          <div class="proj-stack"><span class="stack-chip">Java</span><span class="stack-chip">Design Patterns</span>
+          </div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Event-driven</span>
+          <h3>Adyen Cards Integration</h3>
+          <p>Event-driven payment processing with FX handling, reconciliation and webhook-driven async flows.</p>
+          <div class="proj-stack"><span class="stack-chip">Lambda</span><span class="stack-chip">SQS</span><span
+              class="stack-chip">SNS</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Reconciliation</span>
+          <h3>MYOB Bill Integration</h3>
+          <p>Bill transfers, syncing, attachment handling, reconciliation and error-tolerant retry flows.</p>
+          <div class="proj-stack"><span class="stack-chip">Java</span><span class="stack-chip">Spring Boot</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Payments</span>
+          <h3>Wise Payments Integration</h3>
+          <p>Enabled claim payments via Wise on Spring Boot and AWS Aurora, SQS and SNS.</p>
+          <div class="proj-stack"><span class="stack-chip">Spring Boot</span><span class="stack-chip">Aurora</span><span
+              class="stack-chip">SQS</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PERSONAL PROJECTS ===================== -->
+  <section id="personal">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Personal</div>
+        <h2>Personal projects</h2>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <span class="tag">Marketplace extension</span>
+          <h3>Azure DevOps Sprint-Refinement Extension</h3>
+          <p>Published on the Azure DevOps Marketplace to help teams run sprint refinement more smoothly.</p>
+          <div class="proj-stack"><span class="stack-chip">Azure DevOps</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Automation</span>
+          <h3>Slack API Integrations</h3>
+          <p>A set of small integrations against the Slack API for personal workflow automation.</p>
+          <div class="proj-stack"><span class="stack-chip">Slack API</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">From scratch</span>
+          <h3>JSON Parser</h3>
+          <p>A parser built from scratch in Python to understand tokenising and recursive-descent parsing.</p>
+          <div class="proj-stack"><span class="stack-chip">Python</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="tag">Game logic</span>
+          <h3>Wordle Clone</h3>
+          <p>A Java implementation of Wordle built for fun, exploring game-state logic and word validation.</p>
+          <div class="proj-stack"><span class="stack-chip">Java</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <footer id="contact" style="border-top:1px solid var(--border-soft);">
+    <div class="wrap">
+      <div class="contact-box">
+        <h2>Let's talk</h2>
+        <p>Open to interesting problems, integration puzzles, or just a chat about backend architecture.</p>
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:your.email@example.com">Email me</a>
+          <a class="btn" href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="foot-note">© 2026 Your Name</div>
+    </div>
+  </footer>
+
+  <script>
+    var toggle = document.getElementById('navToggle');
+    var links = document.getElementById('navlinks');
+    toggle.addEventListener('click', function () { links.classList.toggle('open'); });
+    links.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { links.classList.remove('open'); });
+    });
+  </script>
+
+</body>
+
+</html>
